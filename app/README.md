@@ -54,6 +54,14 @@ The simplest way to run the application is with:
 
 IMPORTANT: If a task use some system variable and that variable is not defiened, an error or message will be displayed
 
+### Test
+
+To run all tests:
+
+```
+bundle exec rake test
+```
+
 ###How is the corde organized:
 
 ```
