@@ -1,5 +1,5 @@
 namespace :runner do
-  desc 'Run generator'
+  desc 'Run HTML generator (OVERVIEW: true/false, OUTPUT_PATH=path_to_folder)'
   task :html do
     logger = Logger.new(STDOUT)
     logger.level = Logger::ERROR
@@ -25,7 +25,7 @@ namespace :runner do
     dhr.run({overview: ENV['OVERVIEW'], output: ENV['OUTPUT_PATH']})
   end
 
-  desc "Import XML and create HTML files (XML_DESTINATIONS=path_to_file, XML_TAXONOMY=path_to_file, OUTPUT_PATH=path_to_folder)"
+  desc "Import XML and create HTML files (XML_DESTINATIONS=path_to_file, XML_TAXONOMY=path_to_file, OUTPUT_PATH=path_to_folder, OVERVIEW: true/false)"
   task all: ['importer:all', :html] do
   end
 end
