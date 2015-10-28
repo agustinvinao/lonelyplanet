@@ -22,6 +22,14 @@ For this code testing, some points to be finished are:
 * Runner test: test/runners/dump_html_spec.rb mocks methods for the class but is not testing the main method of the class "run", this method call HtmlGenerator. HtmlGenerator has supporting tests.
 * A good improvement is verify if the final html files are valid using w3c validator for example.
 
+### After clone the repository
+
+After clone the repository you need to install the necessary gems for the application.
+
+```
+bundle install
+```
+
 ### How to execute the code:
 This implementation runs under rake tasks. TO see a list of available tasks:
 
