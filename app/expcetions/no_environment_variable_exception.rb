@@ -1,0 +1,2 @@
+class NoEnvironmentVariableException < Exception
+end

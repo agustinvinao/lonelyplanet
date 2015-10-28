@@ -1,0 +1,2 @@
+class NoDatabaseConfigException < Exception
+end

@@ -1,0 +1,35 @@
+<div id="header">
+  <h1><%= @destination.title %></h1>
+</div>
+<div id="wrapper">
+
+  <div id="sidebar">
+    <% if @destination.has_parent? %>
+      <ul class="navigation">
+        <li><a href="<%= @destination.parent.link %>"> <%= "< #{@destination.parent.title}" %></a></li>
+      </ul>
+    <% end %>
+    <% if @destination.has_children? %>
+      <ul class="navigation">
+        <% @destination.children.each do |child| %>
+          <li><a href="<%= child.link %>"> <%= "> #{child.title}" %></a></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <div id="main">
+    <% @destination.topics.each do |topic| %>
+      <div class="block <%= @overview && topic.entries.overview.length == 0 ? 'hide' : '' %>">
+        <h3 class="title"><%= topic.title_capitalized %></h3>
+        <% (@overview ? topic.entries.overview : topic.entries).each do |entry| %>
+          <p><%= @coder.encode entry.cdata, :named %></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+<div id="footer">
+  <!-- Autor: <a mailto="agustinvinao@gmail.com"><%= @coder.encode 'Agustin Viñao', :named %></a> -->
+</div>

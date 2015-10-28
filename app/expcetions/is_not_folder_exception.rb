@@ -1,0 +1,2 @@
+class IsNotFolderException < Exception
+end

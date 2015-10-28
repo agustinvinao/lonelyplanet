@@ -1,0 +1,2 @@
+class IsNotFileException < Exception
+end

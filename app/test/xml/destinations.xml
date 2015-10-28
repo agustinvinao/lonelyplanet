@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<destinations>
+  <destination atlas_id="355633" asset_id="1524-33" title="Swaziland" title-ascii="Swaziland">
+<history>
+<history>
+<history>
+<![CDATA[
+Test history 1
+]]>
+</history>
+<history>
+<![CDATA[
+Test history 2
+]]>
+</history>
+<overview>
+<![CDATA[
+Test overview 1
+]]>
+</overview>
+</history>
+</history>
+<introductory>
+<introduction>
+<overview>
+<![CDATA[
+Test overview 2
+]]>
+</overview>
+</introduction>
+</introductory>
+<weather>
+<when_to_go>
+<climate>
+<![CDATA[
+Test climate
+]]>
+</climate>
+</when_to_go>
+</weather>
+</destination>
+</destinations>

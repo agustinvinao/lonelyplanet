@@ -1,0 +1,16 @@
+<div id="header">
+  <h1>Index</h1>
+</div>
+<div id="wrapper">
+  <div id="sidebar">
+    <ul class="navigation">
+      <% @destinations.each do |destination| %>
+        <li><a href="<%= destination.link %>"> <%= "> #{destination.title}" %></a></li>
+      <% end %>
+    </ul>
+  </div>
+  <div id="main"></div>
+</div>
+<div id="footer">
+  <!-- Autor: <a mailto="agustinvinao@gmail.com"><%= @coder.encode 'Agustin Viñao', :named %></a> -->
+</div>
