@@ -6,19 +6,20 @@
 * Ruby Verions 2.2.2
 * Bundler version 1.10.6
 * OS X Yosemite
-* rbenv 0.4.0 
+* rbenv 0.4.0
 
-###Development notes: 
+###Development notes:
 
-All gems has theier version in the Gemfile for an easy implementation in new equipments, for any command descripted in this readme use 'bundle exec' to avoid issues with your local environment, gems installed, or any other possible error. That's the beauty of Bundler. 
-The philosophy behind this implementation is to use as much as possible from available solutions and focus on a good, maintable, and clean solution. The XML data is imported to a database, in this case MySql and with the help of ActiveRecord handle the data. This is not a Rails Application, this is a pure Ruby solution that uses some gem as mentioned before.
+All gems has their version in the Gemfile for an easy implementation in new equipments, for any command described in this README use 'bundle exec' to avoid issues with your local environment, gems installed, or any other possible error. That's the beauty of Bundler. The philosophy behind this implementation is to use as much as possible from available solutions and focus on a good, maintainable, and clean solution. The XML data are imported to a database, in this case MySql and with the help of ActiveRecord to handle the data. This is not a Rails Application, this is a pure Ruby solution that uses some gem as mentioned before.
 
-Not all code testing are finished, we can do something else, some improvement, some fix, some change. But we need to see the purpose of the code testing: expose the programmer skills.
+Tasks runner:all and runner:html take OVERVIEW as a true/false flag. This value is used when the HtmlGenerator creates the html file to show all the entries for a topic in a destination, OVERVIEW=false, or only for that topic, OVERVIEW=true. An overview for a topic is defined for a node <overview></overview> in the topic node.
 
-For this code testing, some points to finish are:
+Not all code testing are completed, we can do something else, some improvement, some fix, some change. But we need to see the purpose of the code testing: expose the programmer skills.
+
+For this code testing, some points to be finished are:
 
 * Tasks testing: Tasks importer:destinations and destinations:taxonomy needs testing improvements, all the code used by this tasks has tests but not the task code itself.
-* Runner test: test/runners/dump_html_spec.rb mocks methods for the class but is not testing the main method of the class "run", this method call HtmlGenerator. HtmlGenerator has the correspondant tests.
+* Runner test: test/runners/dump_html_spec.rb mocks methods for the class but is not testing the main method of the class "run", this method call HtmlGenerator. HtmlGenerator has supporting tests.
 * A good improvement is verify if the final html files are valid using w3c validator for example.
 
 ### How to execute the code:
@@ -30,28 +31,28 @@ bundle exec rake -T
 The specific tasks for run the code are:
 
 ```
-rake importer:all           # Import destination.xml and taxonomy.xml (required: XML_DESTINATIONS=path_to_file, 
+rake importer:all           # Import destination.xml and taxonomy.xml (required: XML_DESTINATIONS=path_to_file,
                             # XML_TAXONOMY=path_to_file)
 rake importer:destinations  # Import destinations.xml (required: XML_DESTINATIONS=path_to_file)
 rake importer:taxonomy      # Import taxonomy.xml (required: XML_TAXONOMY=path_to_file)
 rake runner:all             # Import XML and create HTML files (XML_DESTINATIONS=path_to_file, XML_TAXONOMY=path_to_file,
-                            # OUTPUT_PATH=path_to_folder)
-rake runner:html            # Run generator (required: OUTPUT_PATH=path)
+                            # OUTPUT_PATH=path_to_folder, OVERVIEW: true/false)
+rake runner:html            # Run HTML generator (OVERVIEW: true/false, OUTPUT_PATH=path_to_folder)
 rake test                   # Run tests
 ```
 
-All tasks uses system variables, you set any variable before run the task or in the run command directly.
+All tasks uses system variables, before run a task you can set the variable or in the task run line:
 
 The simplest way to run the application is with:
 
-1. copy config/database.yml.example to config/database.yml
-2. setup database.yml configuration values (user, password)
-3. bundle exec rake db:create
-4. bundle exec rake db:setup
-5. bundle exec rake runner:all
+	1. copy config/database.yml.example to config/database.yml
+	2. setup database.yml configuration values (user, password)
+	3. bundle exec rake db:create
+	4. bundle exec rake db:setup
+	5. bundle exec rake runner:all
 
 
-IMPORTANT: You need to set XML_DESTINATIONS and XML_TAXONOMY, if you don't have those variables you'll see an error about that problem.
+IMPORTANT: If a task use some system variable and that variable is not defiened, an error or message will be displayed
 
 ###How is the corde organized:
 
